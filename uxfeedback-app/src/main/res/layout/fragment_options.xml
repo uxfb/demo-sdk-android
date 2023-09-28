@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="sharedPreferencesApi"
+            type="ru.uxfeedback.demoapplication.api.prefs.SharedPreferencesApi" />
+        <variable
+            name="bindingHolder"
+            type="ru.uxfeedback.demoapplication.ui.fragments.options.OptionsFragment.BindingHolder" />
+        <variable
+            name="posTheme"
+            type="Integer" />
+
+    </data>
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbarOptions"
+        android:layout_width="0dp"
+        style="@style/ToolbarStyle.NavigationDisabled"
+        android:layout_height="?attr/actionBarSize"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:title="@string/options" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tiServer"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="16dp"
+        android:hint="@string/server_url"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbarOptions">
+
+        <AutoCompleteTextView
+            android:id="@+id/actvServer"
+            android:focusable="false"
+            android:cursorVisible="false"
+            app:setupApiUrlAdapter="@{sharedPreferencesApi}"
+            app:setupApiUrlItemClickListener="@{bindingHolder}"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tiTheme"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="16dp"
+        android:hint="@string/theme"
+        app:layout_constraintEnd_toStartOf="@+id/btnEditTheme"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tiServer">
+
+        <AutoCompleteTextView
+            android:id="@+id/tietTheme"
+            android:focusable="false"
+            android:cursorVisible="false"
+            android:layout_width="match_parent"
+            app:setupThemeAdapter="@{sharedPreferencesApi}"
+            app:setupThemeItemClickListener="@{bindingHolder}"
+            android:layout_height="wrap_content" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnEditTheme"
+        style="@style/OutlinedButtonStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginEnd="16dp"
+        android:enabled="@{posTheme == 4 ? true : false}"
+        app:icon="@drawable/ic_edit"
+        android:onClickListener="@{_ -> bindingHolder.editTheme()}"
+        app:layout_constraintBottom_toBottomOf="@+id/tiTheme"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tiTheme" />
+
+    <Button
+        android:id="@+id/btnSDKSettings"
+        style="@style/NextButtonStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="16dp"
+        android:text="@string/sdk_settings"
+        android:onClickListener="@{_ -> bindingHolder.sdkSettings()}"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tiTheme" />
+
+    <Button
+        android:id="@+id/btnProperties"
+        style="@style/NextButtonStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="16dp"
+        android:text="@string/sdk_properties"
+        android:onClickListener="@{_ -> bindingHolder.sdkProperties()}"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnSDKSettings" />
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

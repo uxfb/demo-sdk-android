@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="OutlinedButtonStyle" parent="@style/Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="android:insetBottom">0dp</item>
+        <item name="iconPadding">0dp</item>
+        <item name="android:minWidth">0dp</item>
+    </style>
+
+    <style name="FlatButtonStyle" parent="@style/Widget.MaterialComponents.Button.TextButton">
+        <item name="android:insetBottom">0dp</item>
+        <item name="iconPadding">0dp</item>
+        <item name="android:minWidth">0dp</item>
+    </style>
+
+    <style name="DefaultButtonStyle" parent="@style/Widget.MaterialComponents.Button">
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:insetTop">0dp</item>
+    </style>
+
+    <style name="NextButtonStyle" parent="@style/Widget.MaterialComponents.Button">
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="iconPadding">0dp</item>
+        <item name="icon">@drawable/ic_navigate_next</item>
+        <item name="iconGravity">end</item>
+    </style>
+
+    <style name="ToolbarStyle" parent="@style/Widget.MaterialComponents.Toolbar">
+        <item name="navigationIcon">@drawable/ic_arrow_back</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:elevation">0dp</item>
+        <item name="buttonGravity">center_vertical</item>
+        <item name="titleTextAppearance">@style/TextAppearance.AppCompat.Large</item>
+    </style>
+
+    <style name="ToolbarStyle.NavigationDisabled">
+        <item name="navigationIcon">@null</item>
+    </style>
+
+    <style name="LayoutClickStyle">
+        <item name="clickable">true</item>
+        <item name="android:focusable">true</item>
+        <item name="android:background">?attr/selectableItemBackground</item>
+    </style>
+
+
+    <style name="CheckBox" parent="Widget.AppCompat.CompoundButton.CheckBox">
+        <item name="buttonTint">?colorPrimary</item>
+    </style>
+
+
+    <style name="ResourcesUXFBLightTheme" parent="@style/UXFBLightTheme">
+        <item name="uxfbFontH1">@style/ResourcesUXFBFontH1Style</item>
+        <item name="uxfbFontH2">@style/ResourcesUXFBFontH2Style</item>
+        <item name="uxfbFontP1">@style/ResourcesUXFBFontP1Style</item>
+        <item name="uxfbFontP2">@style/ResourcesUXFBFontP2Style</item>
+        <item name="uxfbFontBtn">@style/ResourcesUXFBFontBtnStyle</item>
+    </style>
+
+    <style name="ResourcesUXFBDarkTheme" parent="@style/UXFBDarkTheme">
+        <item name="uxfbFontH1">@style/ResourcesUXFBFontH1Style</item>
+        <item name="uxfbFontH2">@style/ResourcesUXFBFontH2Style</item>
+        <item name="uxfbFontP1">@style/ResourcesUXFBFontP1Style</item>
+        <item name="uxfbFontP2">@style/ResourcesUXFBFontP2Style</item>
+        <item name="uxfbFontBtn">@style/ResourcesUXFBFontBtnStyle</item>
+    </style>
+
+    <style name="ResourcesUXFBFontH1Style" parent="@style/UXFBFontH1Style">
+    <item name="fontFamily">@font/azoft</item>
+    <item name="uxfbFontSize">24sp</item>
+    <item name="uxfbFontItalic">false</item>
+    <item name="uxfbFontWeight">EXTRA_BOLD</item>
+    </style>
+
+    <style name="ResourcesUXFBFontH2Style" parent="@style/UXFBFontH2Style">
+        <item name="fontFamily">@font/airfool</item>
+        <item name="uxfbFontSize">20sp</item>
+        <item name="uxfbFontItalic">false</item>
+        <item name="uxfbFontWeight">THIN</item>
+    </style>
+
+    <style name="ResourcesUXFBFontP1Style" parent="@style/UXFBFontP1Style">
+        <item name="fontFamily">@font/pixy</item>
+        <item name="uxfbFontSize">16sp</item>
+        <item name="uxfbFontItalic">false</item>
+        <item name="uxfbFontWeight">NORMAL</item>
+    </style>
+
+
+    <style name="ResourcesUXFBFontP2Style" parent="@style/UXFBFontP2Style">
+        <item name="fontFamily">@font/comicrelief</item>
+        <item name="uxfbFontSize">14sp</item>
+        <item name="uxfbFontItalic">false</item>
+        <item name="uxfbFontWeight">NORMAL</item>
+    </style>
+
+    <style name="ResourcesUXFBFontBtnStyle" parent="@style/UXFBFontBtnStyle">
+        <item name="fontFamily">@font/comicrelief</item>
+        <item name="uxfbFontSize">14sp</item>
+        <item name="uxfbFontItalic">false</item>
+        <item name="uxfbFontWeight">MEDIUM</item>
+    </style>
+
+
+
+</resources>

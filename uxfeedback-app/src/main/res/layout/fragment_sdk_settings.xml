@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="bindingHolder"
+            type="ru.uxfeedback.demoapplication.ui.fragments.settings.SDKSettingsFragment.BindingHolder" />
+        <variable
+            name="customSettings"
+            type="ru.uxfeedback.pub.sdk.UxFbSettings" />
+    </data>
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbarSettings"
+        android:layout_width="0dp"
+        style="@style/ToolbarStyle"
+        android:layout_height="?attr/actionBarSize"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:onNavigationOnClickListener="@{() -> bindingHolder.onNavButtonClick()}"
+        app:title="@string/sdk_settings" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbarSettings">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <com.google.android.material.divider.MaterialDivider
+                android:layout_width="match_parent"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_height="1dp"/>
+
+            <include layout="@layout/layout_boolean_item"
+                app:clickListener="@{bindingHolder}"
+                app:booleanValue="@{customSettings.debugEnabled}"
+                app:booleanName="@{@string/uxfbDebugEnabledName}"
+                app:booleanDescription="@{@string/uxfbDebugEnabledDescription}" />
+
+            <com.google.android.material.divider.MaterialDivider
+                android:layout_width="match_parent"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_height="1dp"/>
+
+            <include layout="@layout/layout_boolean_item"
+                app:clickListener="@{bindingHolder}"
+                app:booleanValue="@{customSettings.fieldsEventEnabled}"
+                app:booleanName="@{@string/uxfbFieldsEventEnabledName}"
+                app:booleanDescription="@{@string/uxfbFieldsEventEnabledDescription}" />
+
+            <com.google.android.material.divider.MaterialDivider
+                android:layout_width="match_parent"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_height="1dp"/>
+
+            <include layout="@layout/layout_int_item"
+                app:clickListener="@{bindingHolder}"
+                app:intValue="@{customSettings.retryTimeout}"
+                app:intName="@{@string/uxfbRetryTimeoutName}"
+                app:intDescription="@{@string/uxfbRetryTimeoutDescription}" />
+
+            <com.google.android.material.divider.MaterialDivider
+                android:layout_width="match_parent"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_height="1dp"/>
+
+            <include layout="@layout/layout_int_item"
+                app:clickListener="@{bindingHolder}"
+                app:intValue="@{customSettings.retryCount}"
+                app:intName="@{@string/uxfbRetryCountName}"
+                app:intDescription="@{@string/uxfbRetryCountDescription}" />
+
+            <com.google.android.material.divider.MaterialDivider
+                android:layout_width="match_parent"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_height="1dp"/>
+
+            <include layout="@layout/layout_int_item"
+                app:clickListener="@{bindingHolder}"
+                app:intValue="@{customSettings.socketTimeout}"
+                app:intName="@{@string/uxfbSocketTimeoutName}"
+                app:intDescription="@{@string/uxfbSocketTimeoutDescription}" />
+
+            <com.google.android.material.divider.MaterialDivider
+                android:layout_width="match_parent"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_height="1dp"/>
+
+            <include layout="@layout/layout_boolean_item"
+                app:clickListener="@{bindingHolder}"
+                app:booleanValue="@{customSettings.slideInUiBlocked}"
+                app:booleanName="@{@string/uxfbSlideInUiBlockedName}"
+                app:booleanDescription="@{@string/uxfbSlideInUiBlockedDescription}" />
+
+            <com.google.android.material.divider.MaterialDivider
+                android:layout_width="match_parent"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_height="1dp"/>
+
+            <include layout="@layout/layout_color_item"
+                app:clickListener="@{bindingHolder}"
+                app:colorValue="@{customSettings.slideInUiBlackoutColor}"
+                app:colorName="@{@string/uxfbSlideInUiBlackoutColorName}"
+                app:colorDescription="@{@string/uxfbSlideInUiBlackoutColorDescription}" />
+
+            <com.google.android.material.divider.MaterialDivider
+                android:layout_width="match_parent"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_height="1dp"/>
+
+            <include layout="@layout/layout_int_item"
+                app:clickListener="@{bindingHolder}"
+                app:intValue="@{customSettings.slideInUiBlackoutOpacity}"
+                app:intName="@{@string/uxfbSlideInUiBlackoutOpacityName}"
+                app:intDescription="@{@string/uxfbSlideInUiBlackoutOpacityDescription}" />
+
+            <com.google.android.material.divider.MaterialDivider
+                android:layout_width="match_parent"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_height="1dp"/>
+
+            <include layout="@layout/layout_int_item"
+                app:clickListener="@{bindingHolder}"
+                app:intValue="@{customSettings.slideInUiBlackoutBlur}"
+                app:intName="@{@string/uxfbSlideInUiBlackoutBlurName}"
+                app:intDescription="@{@string/uxfbSlideInUiBlackoutBlurDescription}" />
+
+            <com.google.android.material.divider.MaterialDivider
+                android:layout_width="match_parent"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_height="1dp"/>
+
+            <include layout="@layout/layout_color_item"
+                app:clickListener="@{bindingHolder}"
+                app:colorValue="@{customSettings.popupUiBlackoutColor}"
+                app:colorName="@{@string/uxfbPopupUiBlackoutColorName}"
+                app:colorDescription="@{@string/uxfbPopupUiBlackoutColorDescription}" />
+
+            <com.google.android.material.divider.MaterialDivider
+                android:layout_width="match_parent"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_height="1dp"/>
+
+            <include layout="@layout/layout_int_item"
+                app:clickListener="@{bindingHolder}"
+                app:intValue="@{customSettings.popupUiBlackoutOpacity}"
+                app:intName="@{@string/uxfbPopupUiBlackoutOpacityName}"
+                app:intDescription="@{@string/uxfbPopupUiBlackoutOpacityDescription}" />
+
+
+            <com.google.android.material.divider.MaterialDivider
+                android:layout_width="match_parent"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_height="1dp"/>
+
+            <include layout="@layout/layout_int_item"
+                app:clickListener="@{bindingHolder}"
+                app:intValue="@{customSettings.popupUiBlackoutBlur}"
+                app:intName="@{@string/uxfbPopupUiBlackoutBlurName}"
+                app:intDescription="@{@string/uxfbPopupUiBlackoutBlurDescription}" />
+
+            <com.google.android.material.divider.MaterialDivider
+                android:layout_width="match_parent"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_height="1dp"/>
+
+            <include layout="@layout/layout_int_item"
+                app:clickListener="@{bindingHolder}"
+                app:intValue="@{customSettings.startGlobalDelayTimer}"
+                app:intName="@{@string/uxfbStartGlobalDelayTimerName}"
+                app:intDescription="@{@string/uxfbStartGlobalDelayTimerDescription}" />
+
+            <com.google.android.material.divider.MaterialDivider
+                android:layout_width="match_parent"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_height="1dp"/>
+        </LinearLayout>
+
+    </ScrollView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/presenterFragment"
+        android:icon="@drawable/ic_presenter"
+        android:title="@string/presenter" />
+
+    <item
+        android:id="@+id/listenersFragment"
+        android:icon="@drawable/ic_listeners"
+        android:title="@string/listeners" />
+
+    <item
+        android:id="@+id/optionsFragment"
+        android:icon="@drawable/ic_settings"
+        android:title="@string/options" />
+
+</menu>

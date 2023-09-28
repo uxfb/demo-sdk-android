@@ -1,0 +1,124 @@
+<resources>
+    <string name="app_name">UxFeedbackDemoApplication</string>
+
+    <string name="presenter">Просмотр</string>
+    <string name="listeners">Результаты</string>
+    <string name="options">Параметры</string>
+
+    <string name="start_campaign">Запустить кампанию</string>
+    <string name="stop_campaign">Остановить кампанию</string>
+    <string name="app_id">AppId</string>
+    <string name="event_name">EventName</string>
+    <string name="server_url">Server URL</string>
+    <string name="theme">Theme</string>
+    <string name="show_campaigns">Показать кампании</string>
+    <string name="messages_from_sdk">Сообщения от SDK</string>
+    <string name="restart_application">Для продолжения необходимо перезапустить приложение! Продолжить?</string>
+    <string name="ok">Да</string>
+    <string name="cancel">Отмена</string>
+    <string name="apply">Применить</string>
+    <string name="save">Сохранить</string>
+    <string name="clear_messages">Очистить сообщения</string>
+    <string name="sdk_settings">Настройки SDK</string>
+    <string name="custom_theme">Кастомная тема</string>
+    <string name="sdk_properties">Свойства SDK</string>
+    <string name="property">Дополнительное свойство</string>
+
+    <string name="key">Ключ</string>
+    <string name="value">Значение</string>
+    <string name="select_font">Выберите шрифт</string>
+    <string name="select_font_weight">Выберите вес шрифта</string>
+    <string name="select_font_size">Введите размер шрифта</string>
+    <string name="select_italic">Наклонный шрифт</string>
+
+
+    <string name="dpValue">%1$ddp</string>
+    <string name="spValue">%1$dsp</string>
+
+
+    <string name="uxfbBgColorName">bgColor</string>
+    <string name="uxfbBgColorDescription">Цвет фона формы</string>
+    <string name="uxfbIconColorName">iconColor</string>
+    <string name="uxfbIconColorDescription">Цвет иконки «закрыть форму», чекбоксов, радиокнопок в нормальном состоянии</string>
+    <string name="uxfbText01ColorName">text01Color</string>
+    <string name="uxfbText01ColorDescription">Цвет заголовков блока header и заголовков всех блоков ввода информации (comment textarea, comment input, rating smile, radio button, checkbox, email)</string>
+    <string name="uxfbText02ColorName">text02Color</string>
+    <string name="uxfbText02ColorDescription">Цвет блока text</string>
+    <string name="uxfbText03ColorName">text03Color</string>
+    <string name="uxfbText03ColorDescription">Цвет текста считчика страниц, плэйсхолдера инпутов (comment textarea, comment input,  email), чекбоксов (checkbox) и радиокнопок (radio button) в нормальном состоянии</string>
+    <string name="uxfbMainColorName">mainColor</string>
+    <string name="uxfbMainColorDescription"> Цвет курсора в инпуте и внутренней обводки инпута в фокусе (comment textarea, comment input,  email), иконок активного чекбокса и радиокнопок (checkbox, radio button)</string>
+    <string name="uxfbErrorColorPrimaryName">errorColorPrimary</string>
+    <string name="uxfbErrorColorPrimaryDescription">Цвет звезды в заголовках обязательных вопросов и сообщений о незаполненных обязательных полях</string>
+    <string name="uxfbErrorColorSecondaryName">errorColorSecondary</string>
+    <string name="uxfbErrorColorSecondaryDescription">Цвет внутренней обводки у невыбранного смайла (rating smile), звезд, чекбоксов и радиокнопок (checkbox, radio button)</string>
+    <string name="uxfbBtnBgColorName">btnBgColor</string>
+    <string name="uxfbBtnBgColorDescription">Фон кнопки (button)</string>
+    <string name="uxfbBtnBgColorActiveName">btnBgColorActive</string>
+    <string name="uxfbBtnBgColorActiveDescription">Фон кнопки при нажатии (button)</string>
+    <string name="uxfbBtnTextColorName">btnTextColor</string>
+    <string name="uxfbBtnTextColorDescription">Фон кнопки при нажатии (button)</string>
+    <string name="uxfbInputBgColorName">inputBgColor</string>
+    <string name="uxfbInputBgColorDescription">Фон инпутов (comment textarea, comment input, email)</string>
+    <string name="uxfbInputBorderColorName">inputBorderColor</string>
+    <string name="uxfbInputBorderColorDescription">Внутренняя обводка инпутов (comment textarea, comment input, email)</string>
+    <string name="uxfbControlBgColorName">controlBgColor</string>
+    <string name="uxfbControlBgColorDescription">Фон в (radio button, checkbox)</string>
+    <string name="uxfbControlBgColorActiveName">controlBgColorActive</string>
+    <string name="uxfbControlBgColorActiveDescription">Фон активных вариантов (radio button, checkbox)</string>
+    <string name="uxfbControlIconColorName">controlIconColor</string>
+    <string name="uxfbControlIconColorDescription">Цвет центрального элемента в иконке блока (radio button) и галки в иконке блока (checkbox)</string>
+    <string name="uxfbFormBorderRadiusName">formBorderRadius</string>
+    <string name="uxfbFormBorderRadiusDescription">Закругления верхних углов формы в slideIn и закругления всех четырех углов в popup</string>
+    <string name="uxfbBtnBorderRadiusName">btnBorderRadius</string>
+    <string name="uxfbBtnBorderRadiusDescription">Закругление кнопки «продолжить»</string>
+    <string name="uxfbLightNavigationBarName">lightNavigationBar</string>
+    <string name="uxfbLightNavigationBarDescription">Стиль NavigationBar/StatusBar</string>
+    <string name="uxfbFontH1Name">fontH1</string>
+    <string name="uuxfbFontH1Description">Шрифт заголовка кампании</string>
+    <string name="uxfbFontH2Name">fontH2</string>
+    <string name="uuxfbFontH2Description">Шрифт заголовка поля (field)</string>
+    <string name="uxfbFontP1Name">fontP1</string>
+    <string name="uuxfbFontP1Description">Основной шрифт</string>
+    <string name="uxfbFontP2Name">fontP2</string>
+    <string name="uuxfbFontP2Description">Шрифт подсказок</string>
+    <string name="uxfbFontBtnName">fontBtn</string>
+    <string name="uuxfbFontBtnDescription">Шрифт кнопок</string>
+    <string name="uxfbDebugEnabledName">debugEnabled</string>
+    <string name="uxfbDebugEnabledDescription">Вывод сообщений о работе SDK в logcat и в UXFeedback.logListener</string>
+    <string name="uxfbFieldsEventEnabledName">fieldsEventEnabled</string>
+    <string name="uxfbFieldsEventEnabledDescription">Вывод содержимого пройденых полей по мере прохождения кампании  в UXFbOnEventsListener.uxFbOnFieldsEvent</string>
+    <string name="uxfbRetryTimeoutName">retryTimeout</string>
+    <string name="uxfbRetryTimeoutDescription">Время между попытками отправки данных</string>
+    <string name="uxfbRetryCountName">retryCount</string>
+    <string name="uxfbRetryCountDescription">Количество попыток отправки данных</string>
+    <string name="uxfbSocketTimeoutName">socketTimeout</string>
+    <string name="uxfbSocketTimeoutDescription">Таймаут ожидания подключения сокета</string>
+    <string name="uxfbSlideInUiBlockedName">slideInUiBlocked</string>
+    <string name="uxfbSlideInUiBlockedDescription">Блокировка интерфейса (элементов находящихся позади) для формы типа  slideIn</string>
+    <string name="uxfbSlideInUiBlackoutColorName">slideInUiBlackoutColor</string>
+    <string name="uxfbSlideInUiBlackoutColorDescription">Цвет заднего фона для формы типа slideIn</string>
+    <string name="uxfbSlideInUiBlackoutOpacityName">slideInUiBlackoutOpacity</string>
+    <string name="uxfbSlideInUiBlackoutOpacityDescription">Прозрачночть заднего фона для формы типа slideIn от 0 до 100%</string>
+    <string name="uxfbSlideInUiBlackoutBlurName">slideInUiBlackoutBlur</string>
+    <string name="uxfbSlideInUiBlackoutBlurDescription">Размытие заднего фона для формы типа slideIn от 0 до 100%</string>
+    <string name="uxfbPopupUiBlackoutColorName">popupUiBlackoutColor</string>
+    <string name="uxfbPopupUiBlackoutColorDescription">Цвет заднего фона для формы типа popup</string>
+    <string name="uxfbPopupUiBlackoutOpacityName">popupUiBlackoutOpacity</string>
+    <string name="uxfbPopupUiBlackoutOpacityDescription">Прозрачночть заднего фона для формы типа popup от 0 до 100%</string>
+    <string name="uxfbPopupUiBlackoutBlurName">popupUiBlackoutBlur</string>
+    <string name="uxfbPopupUiBlackoutBlurDescription">Размытие заднего фона для формы типа popup от 0 до 100%</string>
+    <string name="uxfbStartGlobalDelayTimerName">startGlobalDelayTimer</string>
+    <string name="uxfbStartGlobalDelayTimerDescription">Задержка между показами кампаний у которых не стоит галочка "показывать каждый раз" (в web-консоли)</string>
+
+
+
+    <string name="start_second_activity">Запустить Second Activity</string>
+    <string name="second_activity">Second Activity</string>
+
+
+
+
+
+
+</resources>

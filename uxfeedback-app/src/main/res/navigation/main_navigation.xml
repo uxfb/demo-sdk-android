@@ -8,7 +8,11 @@
         android:id="@+id/presenterFragment"
         android:name="ru.uxfeedback.demoapplication.ui.fragments.presenter.PresenterFragment"
         android:label="PresenterFragment"
-        tools:layout="@layout/fragment_presenter"/>
+        tools:layout="@layout/fragment_presenter">
+        <action
+            android:id="@+id/action_presenterFragment_to_attributesFragment"
+            app:destination="@id/attributesFragment" />
+    </fragment>
     <fragment
         android:id="@+id/listenersFragment"
         android:name="ru.uxfeedback.demoapplication.ui.fragments.listeners.ListenersFragment"
@@ -59,4 +63,9 @@
         tools:layout="@layout/fragment_properties"
         android:name="ru.uxfeedback.demoapplication.ui.fragments.properties.PropertiesFragment"
         android:label="PropertiesFragment" />
+    <fragment
+        android:id="@+id/attributesFragment"
+        tools:layout="@layout/fragment_attributes"
+        android:name="ru.uxfeedback.demoapplication.ui.fragments.attributes.AttributesFragment"
+        android:label="AttributesFragment" />
 </navigation>

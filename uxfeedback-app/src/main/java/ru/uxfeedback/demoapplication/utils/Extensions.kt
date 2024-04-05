@@ -4,27 +4,33 @@ import android.app.Activity
 import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
+import android.text.InputType
+import android.widget.ArrayAdapter
 import androidx.annotation.IdRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
-import androidx.recyclerview.widget.ListAdapter
-import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import com.google.android.material.textfield.TextInputEditText
 import com.skydoves.colorpickerview.ColorPickerDialog
 import com.skydoves.colorpickerview.listeners.ColorEnvelopeListener
-import ru.uxfeedback.demoapplication.BuildConfig
 import ru.uxfeedback.demoapplication.BuildConfig.APPLICATION_ID
 import ru.uxfeedback.demoapplication.R
+import ru.uxfeedback.demoapplication.databinding.LayoutAttributeDialogBinding
 import ru.uxfeedback.demoapplication.databinding.LayoutEditDialogBinding
+import ru.uxfeedback.demoapplication.databinding.LayoutEnumDialogBinding
 import ru.uxfeedback.demoapplication.databinding.LayoutFontDialogBinding
 import ru.uxfeedback.demoapplication.databinding.LayoutPropertyDialogBinding
 import ru.uxfeedback.demoapplication.ui.activity.MainActivity
+import ru.uxfeedback.demoapplication.ui.fragments.attributes.entities.AttributeRecord
+import ru.uxfeedback.demoapplication.ui.fragments.attributes.entities.AttributeType
+import ru.uxfeedback.demoapplication.ui.fragments.attributes.interfaces.OnAttributeTypeChangeListener
 import ru.uxfeedback.demoapplication.ui.fragments.properties.entities.PropertyRecord
+import ru.uxfeedback.pub.sdk.UxFbAttributes
 import ru.uxfeedback.pub.sdk.UxFbColor
 import ru.uxfeedback.pub.sdk.UxFbDimen
 import ru.uxfeedback.pub.sdk.UxFbFont
+import java.text.SimpleDateFormat
+
 
 fun AppCompatActivity.findNavControllerByFragmentId(@IdRes fragmentId: Int): NavController {
     return (supportFragmentManager.findFragmentById(fragmentId) as NavHostFragment).navController
@@ -97,6 +103,25 @@ fun Activity.showChangeDimenDialog(dimenName: String, dimen: UxFbDimen, callback
         .show()
 }
 
+fun <T: Enum<T>> Activity.showChangeEnumDialog(enumName: String, string: String, values: Array<T>, callback: (String) -> Unit){
+    val binding = LayoutEnumDialogBinding.inflate(layoutInflater)
+    binding.teEnumDialog.apply {
+        setText(string)
+        setAdapter(ArrayAdapter(this@showChangeEnumDialog, android.R.layout.simple_dropdown_item_1line, values.map { it.name }))
+    }
+    MaterialAlertDialogBuilder(this)
+        .setTitle(enumName)
+        .setPositiveButton(getString(R.string.apply)) { dialogInterface, i ->
+            try {
+                callback.invoke( binding.teEnumDialog.text.toString())
+            }catch (_: Exception){}
+        }
+        .setNegativeButton(getString(R.string.cancel)) { dialogInterface, i -> dialogInterface.dismiss() }
+        .setView(binding.root)
+        .show()
+}
+
+
 fun Activity.showChangeIntDialog(dimenName: String, integer: Int, callback: (Int) -> Unit){
     val binding = LayoutEditDialogBinding.inflate(layoutInflater)
     binding.teEditDialog.setText(integer.toString())
@@ -113,6 +138,26 @@ fun Activity.showChangeIntDialog(dimenName: String, integer: Int, callback: (Int
         .setView(binding.root)
         .show()
 }
+
+fun Activity.showChangeStringDialog(stringName: String, string: String, callback: (String) -> Unit){
+    val binding = LayoutEditDialogBinding.inflate(layoutInflater)
+    binding.teEditDialog.setText(string)
+    binding.teEditDialog.inputType = InputType.TYPE_CLASS_TEXT
+    MaterialAlertDialogBuilder(this)
+        .setTitle(stringName)
+        .setPositiveButton(getString(R.string.apply)) { dialogInterface, i ->
+            try {
+                callback.invoke(binding.teEditDialog.text.toString())
+            }catch (_: Exception){
+                callback.invoke(string)
+            }
+        }
+        .setNegativeButton(getString(R.string.cancel)) { dialogInterface, i -> dialogInterface.dismiss() }
+        .setView(binding.root)
+        .show()
+}
+
+
 
 
 fun Activity.showChangeFontDialog(fontName: String, font: UxFbFont, callback:(UxFbFont?) -> Unit){
@@ -155,6 +200,63 @@ fun Activity.showPropertyDialog(oldValue: PropertyRecord = Pair("", ""), callbac
         .setView(binding.root)
         .show()
 }
+
+fun Activity.showAttributeDialog(oldValue: AttributeRecord = AttributeRecord("",AttributeType.STRING ,""), callback: (AttributeRecord?) -> Unit){
+    val binding = LayoutAttributeDialogBinding.inflate(layoutInflater)
+    binding.attribute = oldValue
+    binding.nameIsEditable = oldValue.name.isEmpty()
+    binding.attributeTypeChangeListener = object: OnAttributeTypeChangeListener {
+        override fun onAttributeTypeChange(newAttributeRecord: AttributeRecord) {
+            binding.attribute = newAttributeRecord
+        }
+    }
+    MaterialAlertDialogBuilder(this)
+        .setTitle(R.string.add_attribute)
+        .setPositiveButton(getString(R.string.save)) { dialogInterface, i ->
+            try {
+                if (binding.teAttrName.text.isNullOrEmpty()){
+                    callback.invoke(null)
+                    return@setPositiveButton
+                }
+               val attr =  binding.attribute ?: throw NullPointerException()
+                when (attr.type){
+                    AttributeType.STRING,
+                    AttributeType.INT,
+                    AttributeType.FLOAT,
+                    AttributeType.DOUBLE ->{
+                        if (binding.teAttrValue.text.isNullOrEmpty()){
+                            callback.invoke(null)
+                            return@setPositiveButton
+                        }
+                        callback.invoke(AttributeRecord(binding.teAttrName.text.toString(),
+                            attr.type,
+                            binding.teAttrValue.text.toString()))
+                    }
+                    AttributeType.DATE -> {
+                        if (binding.btnTypeDate.tag == null){
+                            callback.invoke(null)
+                            return@setPositiveButton
+                        }
+                        callback.invoke(AttributeRecord(binding.teAttrName.text.toString(),
+                            attr.type,
+                            binding.btnTypeDate.text.toString()))
+                    }
+                    AttributeType.BOOLEAN -> {
+                        callback.invoke(AttributeRecord(binding.teAttrName.text.toString(),
+                            attr.type,
+                            binding.checkBoxAttrValue.isChecked.toString()))
+                    }
+                }
+            }catch (_: Exception){
+                callback.invoke(null)
+            }
+        }
+        .setNegativeButton(getString(R.string.cancel)) { dialogInterface, i -> dialogInterface.dismiss() }
+        .setView(binding.root)
+        .show()
+}
+
+
 
 
 fun String.fromAppFont(): String{
@@ -225,5 +327,26 @@ fun String.fromFontWeight(): Int{
         "EXTRA_BOLD" -> 800
         "BLACK" -> 900
         else -> this.toInt()
+    }
+}
+
+
+fun UxFbAttributes.fromAttributeRecords(attributeRecords: List<AttributeRecord>):UxFbAttributes{
+   return with(UxFbAttributes()){
+        attributeRecords.forEach {attributeRecord ->
+                    when(attributeRecord.type){
+                        AttributeType.STRING -> addValue(attributeRecord.name, attributeRecord.value)
+                        AttributeType.INT -> addValue(attributeRecord.name, attributeRecord.value.toInt())
+                        AttributeType.FLOAT -> addValue(attributeRecord.name, attributeRecord.value.toFloat())
+                        AttributeType.DOUBLE -> addValue(attributeRecord.name, attributeRecord.value.toDouble())
+                        AttributeType.DATE -> {
+                            SimpleDateFormat("yyyy-MM-dd").parse(attributeRecord.value)?.let {
+                                addValue(attributeRecord.name,  it)
+                            }
+                        }
+                        AttributeType.BOOLEAN -> addValue(attributeRecord.name, attributeRecord.value.toBoolean())
+                    }
+        }
+       this
     }
 }

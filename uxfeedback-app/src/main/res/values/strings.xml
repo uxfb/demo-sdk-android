@@ -110,15 +110,24 @@
     <string name="uxfbPopupUiBlackoutBlurDescription">Размытие заднего фона для формы типа popup от 0 до 100%</string>
     <string name="uxfbStartGlobalDelayTimerName">startGlobalDelayTimer</string>
     <string name="uxfbStartGlobalDelayTimerDescription">Задержка между показами кампаний у которых не стоит галочка "показывать каждый раз" (в web-консоли)</string>
-
+    <string name="uxfbProcessNameName">processName</string>
+    <string name="uxfbProcessNameDescription">Имя процесса. Используется если  SDK работает не в основном процессе приложения. Пример :ProcessName!</string>
+    <string name="uxfbTargetPlatformName">targetPlatform</string>
+    <string name="uxfbTargetPlatformDescription">Целевая платформа в которой работает SDK.</string>
+    <string name="uxfbTargetPlatformVersionName">targetPlatformVersion</string>
+    <string name="uxfbTargetPlatformVersionDescription">Дополнительная информация по целевой платформе.</string>
 
 
     <string name="start_second_activity">Запустить Second Activity</string>
     <string name="second_activity">Second Activity</string>
 
-
-
-
-
+    <string name="attributes_from_campaign">Атрибуты кампании</string>
+    <string name="attribute_name">Имя атрибута</string>
+    <string name="attribute_type">Тип атрибута</string>
+    <string name="attribute_value">Значение атрибута</string>
+    <string name="add_attribute">Добавить атрибут</string>
+    <string name="select_date">Укажите дату</string>
+    <string name="select_value">Укажите значение</string>
+    <string name="bad_attributes_format">Неправильный формат атрибутов</string>
 
 </resources>

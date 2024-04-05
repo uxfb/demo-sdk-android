@@ -1,7 +1,6 @@
 package ru.uxfeedback.demoapplication.api.logs
 
 import ru.uxfeedback.demoapplication.api.logs.entities.LogRecord
-import ru.uxfeedback.demoapplication.ui.fragments.listeners.ListenersFragment
 import ru.uxfeedback.demoapplication.ui.fragments.listeners.ListenersFragment.BindingHolder
 import ru.uxfeedback.pub.sdk.UxFbOnEventsListener
 import ru.uxfeedback.pub.sdk.UxFbOnLogListener
@@ -27,17 +26,17 @@ class LogManagerApi @Inject constructor()  {
 
     val campaignListener = object : UxFbOnEventsListener {
         override fun uxFbNoCampaignToStart(eventName: String) {
-            logRecords.add(LogRecord.obtainCampaign("uxFbNoCampaignToStart$eventName"))
+            logRecords.add(LogRecord.obtainCampaign("uxFbNoCampaignToStart $eventName"))
             subscriber.get()?.onUpdate(logList)
         }
 
         override fun uxFbOnFieldsEvent(campaignId: Int, eventName: String, fieldValues: Map<String, Array<String>>) {
-            logRecords.add(LogRecord.obtainCampaign("uxFbOnFieldsEvent$campaignId$eventName$fieldValues"))
+            logRecords.add(LogRecord.obtainCampaign("uxFbOnFieldsEvent $campaignId$eventName$fieldValues"))
             subscriber.get()?.onUpdate(logList)
         }
 
         override fun uxFbOnFinishCampaign(campaignId: Int, eventName: String) {
-            logRecords.add(LogRecord.obtainCampaign("uxFbOnFinishCampaign$campaignId$eventName"))
+            logRecords.add(LogRecord.obtainCampaign("uxFbOnFinishCampaign $campaignId$eventName"))
             subscriber.get()?.onUpdate(logList)
         }
 
@@ -47,19 +46,19 @@ class LogManagerApi @Inject constructor()  {
         }
 
         override fun uxFbOnStartCampaign(campaignId: Int, eventName: String) {
-            logRecords.add(LogRecord.obtainCampaign("uxFbOnStartCampaign$campaignId$eventName"))
+            logRecords.add(LogRecord.obtainCampaign("uxFbOnStartCampaign $campaignId$eventName"))
             subscriber.get()?.onUpdate(logList)
         }
 
         override fun uxFbOnTerminateCampaign(campaignId: Int, eventName: String, terminatedPage: Int, totalPages: Int) {
-            logRecords.add(LogRecord.obtainCampaign("uxFbOnTerminateCampaign$campaignId$eventName$terminatedPage$totalPages"))
+            logRecords.add(LogRecord.obtainCampaign("uxFbOnTerminateCampaign $campaignId$eventName$terminatedPage$totalPages"))
             subscriber.get()?.onUpdate(logList)
         }
     }
 
     val logListener = object : UxFbOnLogListener {
         override fun uxFbOnLog(message: String) {
-            logRecords.add(LogRecord.obtainLog("uxFbOnLog$message"))
+            logRecords.add(LogRecord.obtainLog("uxFbOnLog $message"))
             subscriber.get()?.onUpdate(logList)
         }
     }

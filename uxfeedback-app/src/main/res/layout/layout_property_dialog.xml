@@ -17,7 +17,7 @@
             android:id="@+id/teKey"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
             tools:text="ASDASD" />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -36,7 +36,7 @@
             android:id="@+id/teValue"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
             tools:text="ASDASD" />
 
     </com.google.android.material.textfield.TextInputLayout>

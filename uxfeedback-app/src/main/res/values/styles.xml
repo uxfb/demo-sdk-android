@@ -6,6 +6,11 @@
         <item name="android:minWidth">0dp</item>
     </style>
 
+    <style name="OutlinedButtonStyle.Large" >
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Large</item>
+    </style>
+
+
     <style name="FlatButtonStyle" parent="@style/Widget.MaterialComponents.Button.TextButton">
         <item name="android:insetBottom">0dp</item>
         <item name="iconPadding">0dp</item>

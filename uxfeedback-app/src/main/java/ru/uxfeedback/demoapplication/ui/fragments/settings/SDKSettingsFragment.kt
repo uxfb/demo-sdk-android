@@ -11,13 +11,17 @@ import ru.uxfeedback.demoapplication.R
 import ru.uxfeedback.demoapplication.api.prefs.SharedPreferencesApi
 import ru.uxfeedback.demoapplication.databinding.FragmentSdkSettingsBinding
 import ru.uxfeedback.demoapplication.ui.common.interfaces.OnBooleanClickListener
+import ru.uxfeedback.demoapplication.ui.common.interfaces.OnEnumClickListener
 import ru.uxfeedback.demoapplication.ui.common.interfaces.OnIntegerClickListener
+import ru.uxfeedback.demoapplication.ui.common.interfaces.OnStringClickListener
 import ru.uxfeedback.demoapplication.ui.common.interfaces.OnUxFbColorClickListener
 import ru.uxfeedback.demoapplication.utils.showChangeColorDialog
-import ru.uxfeedback.demoapplication.utils.showChangeDimenDialog
+import ru.uxfeedback.demoapplication.utils.showChangeEnumDialog
 import ru.uxfeedback.demoapplication.utils.showChangeIntDialog
-import ru.uxfeedback.pub.sdk.UxFeedback
+import ru.uxfeedback.demoapplication.utils.showChangeStringDialog
 import ru.uxfeedback.pub.sdk.UxFbColor
+import ru.uxfeedback.pub.sdk.UxFbTargetPlatform
+import ru.uxfeedback.pub.sdk.UxFeedback
 import javax.inject.Inject
 
 
@@ -42,7 +46,7 @@ class SDKSettingsFragment: Fragment(R.layout.fragment_sdk_settings) {
     }
 
 
-    inner class BindingHolder: OnBooleanClickListener, OnIntegerClickListener, OnUxFbColorClickListener {
+    inner class BindingHolder: OnBooleanClickListener, OnIntegerClickListener, OnUxFbColorClickListener, OnStringClickListener, OnEnumClickListener {
 
         fun onNavButtonClick() = findNavController().popBackStack()
 
@@ -118,6 +122,38 @@ class SDKSettingsFragment: Fragment(R.layout.fragment_sdk_settings) {
                     }
                 }
                 binding.invalidateAll()
+            }
+        }
+
+        override fun stringClick(stringName: String, string: String) {
+            activity?.showChangeStringDialog(stringName, string){ newValue ->
+                when(stringName){
+                    getString(R.string.uxfbProcessNameName) -> {
+                        customSettings.processName = newValue
+                        UxFeedback.sdk?.settings?.processName = customSettings.processName
+                    }
+                    getString(R.string.uxfbTargetPlatformVersionName) -> {
+                        customSettings.targetPlatformVersion = newValue
+                        UxFeedback.sdk?.settings?.targetPlatformVersion = customSettings.processName
+                    }
+                }
+                sharedPreferencesApi.pushSettings(customSettings)
+                binding.invalidateAll()
+            }
+        }
+
+        override fun enumClick(enumName: String, string: String) {
+            when(enumName){
+                getString(R.string.uxfbTargetPlatformName) -> {
+                    activity?.showChangeEnumDialog(enumName, string, UxFbTargetPlatform.values()){ newValue ->
+                        customSettings.targetPlatform = UxFbTargetPlatform.valueOf(newValue)
+                        UxFeedback.sdk?.settings?.targetPlatform = customSettings.targetPlatform
+                        sharedPreferencesApi.pushSettings(customSettings)
+                        binding.invalidateAll()
+
+                    }
+
+                }
             }
         }
     }

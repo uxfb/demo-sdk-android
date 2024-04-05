@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <import type="ru.uxfeedback.demoapplication.ui.fragments.attributes.entities.AttributeType"/>
+        <import type="android.view.View"/>
+        <variable
+            name="attribute"
+            type="ru.uxfeedback.demoapplication.ui.fragments.attributes.entities.AttributeRecord" />
+        <variable
+            name="attributeTypeChangeListener"
+            type="ru.uxfeedback.demoapplication.ui.fragments.attributes.interfaces.OnAttributeTypeChangeListener" />
+        <variable
+            name="nameIsEditable"
+            type="java.lang.Boolean" />
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tiAttrName"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:hint="@string/attribute_name"
+            android:enabled="@{nameIsEditable}"
+            android:layout_height="wrap_content"
+            android:layout_margin="24dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/teAttrName"
+                android:layout_width="match_parent"
+                android:text="@{attribute.name}"
+                android:layout_height="wrap_content"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                tools:text="AttrName" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+            <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tiAttrType"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginBottom="24dp"
+            android:hint="@string/attribute_type">
+
+            <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                android:id="@+id/teAttrType"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:setupAttributeTypeAdapter="@{attribute}"
+                app:setupAttributeChangeListener="@{attributeTypeChangeListener}"
+                app:nameTextInputEditText="@{ teAttrName }"
+                android:focusable="false"
+                android:cursorVisible="false"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                tools:text="AttrType" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnTypeDate"
+            app:setupAttributeDateButton="@{attribute}"
+            android:textAllCaps="true"
+            style="@style/OutlinedButtonStyle.Large"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="20dp" />
+
+
+        <com.google.android.material.checkbox.MaterialCheckBox
+            android:id="@+id/checkBoxAttrValue"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:setupAttributeBooleanCheckBox="@{attribute}"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="20dp"
+            android:layout_weight="1"
+            android:text="@string/select_value" />
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tiAttrValue"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            app:setupAttributeValueTextInputLayout="@{attribute}"
+            android:hint="@string/attribute_value"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginBottom="24dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/teAttrValue"
+                android:layout_width="match_parent"
+                android:text="@{attribute.name}"
+                android:layout_height="wrap_content"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                tools:text="AttrName" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+    </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</layout>

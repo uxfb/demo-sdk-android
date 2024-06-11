@@ -45,7 +45,7 @@
     <string name="uxfbText02ColorName">text02Color</string>
     <string name="uxfbText02ColorDescription">Цвет блока text</string>
     <string name="uxfbText03ColorName">text03Color</string>
-    <string name="uxfbText03ColorDescription">Цвет текста считчика страниц, плэйсхолдера инпутов (comment textarea, comment input,  email), чекбоксов (checkbox) и радиокнопок (radio button) в нормальном состоянии</string>
+    <string name="uxfbText03ColorDescription">Цвет текста счетчика страниц, плэйсхолдера инпутов (comment textarea, comment input,  email), чекбоксов (checkbox) и радиокнопок (radio button) в нормальном состоянии</string>
     <string name="uxfbMainColorName">mainColor</string>
     <string name="uxfbMainColorDescription"> Цвет курсора в инпуте и внутренней обводки инпута в фокусе (comment textarea, comment input,  email), иконок активного чекбокса и радиокнопок (checkbox, radio button)</string>
     <string name="uxfbErrorColorPrimaryName">errorColorPrimary</string>
@@ -57,7 +57,7 @@
     <string name="uxfbBtnBgColorActiveName">btnBgColorActive</string>
     <string name="uxfbBtnBgColorActiveDescription">Фон кнопки при нажатии (button)</string>
     <string name="uxfbBtnTextColorName">btnTextColor</string>
-    <string name="uxfbBtnTextColorDescription">Фон кнопки при нажатии (button)</string>
+    <string name="uxfbBtnTextColorDescription">Текст в кнопке (button)</string>
     <string name="uxfbInputBgColorName">inputBgColor</string>
     <string name="uxfbInputBgColorDescription">Фон инпутов (comment textarea, comment input, email)</string>
     <string name="uxfbInputBorderColorName">inputBorderColor</string>

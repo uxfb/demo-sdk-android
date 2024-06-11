@@ -170,8 +170,8 @@
             <include layout="@layout/layout_color_item"
                 app:clickListener="@{bindingHolder}"
                 app:colorValue="@{customTheme.btnTextColor}"
-                app:colorName="@{@string/uxfbBtnBgColorActiveName}"
-                app:colorDescription="@{@string/uxfbBtnBgColorActiveDescription}" />
+                app:colorName="@{@string/uxfbBtnTextColorName}"
+                app:colorDescription="@{@string/uxfbBtnTextColorDescription}" />
 
             <com.google.android.material.divider.MaterialDivider
                 android:layout_width="match_parent"

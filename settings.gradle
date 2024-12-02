@@ -10,7 +10,7 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
-        maven { url 'https://mymavenrepo.com/repo/gh9JJ4CGNZawn7xYpeUD/' }
+        maven { url "https://nexus.uxfeedback.ru/repository/android-sdk-new/" }
     }
 }
 

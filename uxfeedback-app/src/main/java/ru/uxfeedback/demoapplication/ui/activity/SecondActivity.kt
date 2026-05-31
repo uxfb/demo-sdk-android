@@ -11,21 +11,12 @@ import ru.uxfeedback.pub.sdk.UxFeedback
 class SecondActivity : AppCompatActivity() {
 
     private val listener = object:UxFbOnEventsListener{
-        override fun uxFbOnReady() {
-                runOnUiThread {
-                    binding.textView.text = "Ready"
-                }
-        }
-
-        override fun uxFbOnStartCampaign(campaignId: Int, eventName: String) {
-
-        }
-
-        override fun uxFbOnFinishCampaign(campaignId: Int, eventName: String) {
+        override fun uxFbNoCampaignToStart(invocationId: String, eventName: String) {
 
         }
 
         override fun uxFbOnFieldsEvent(
+            invocationId: String,
             campaignId: Int,
             eventName: String,
             fieldValues: Map<String, Array<String>>
@@ -33,16 +24,39 @@ class SecondActivity : AppCompatActivity() {
 
         }
 
+        override fun uxFbOnFinishCampaign(
+            invocationId: String,
+            campaignId: Int,
+            eventName: String
+        ) {
+
+        }
+
+        override fun uxFbOnReady() {
+                runOnUiThread {
+                    binding.textView.text = "Ready"
+                }
+        }
+
+        override fun uxFbOnSetupError(errorType: String, error: Throwable) {
+
+        }
+
+        override fun uxFbOnStartCampaign(
+            invocationId: String,
+            campaignId: Int,
+            eventName: String
+        ) {
+
+        }
+
         override fun uxFbOnTerminateCampaign(
+            invocationId: String,
             campaignId: Int,
             eventName: String,
             terminatedPage: Int,
             totalPages: Int
         ) {
-
-        }
-
-        override fun uxFbNoCampaignToStart(eventName: String) {
 
         }
 
